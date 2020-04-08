@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LibraryService {
+
+  books = [];
+  constructor() {
+
+    this.books = [
+      { 'name': 'My experiments with Truth', 'author': 'M.K.Gandhi ', 'price': '$145' },
+      { 'name': 'The Merchant of venice', 'author': 'William shakespeare', 'price': '$543' },
+      { 'name': 'A Tale of Two Cities', 'author': 'Charles Dickens ', 'price': '$64' },
+      { 'name': 'Origin of species', 'author': 'charles Darwin ', 'price': '$283' },
+      { 'name': 'Time Machine ', 'author': 'H.G. Wells ', 'price': '$12' },
+      { 'name': 'Mein Kampf ', 'author': 'Adolf Hitler ', 'price': '$384' },
+      { 'name': 'Invisible Man  ', 'author': 'H.G. Wells', 'price': '$123' }
+    ]
+  }
+
+
+
+}

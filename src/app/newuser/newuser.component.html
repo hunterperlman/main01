@@ -1,0 +1,24 @@
+<div class="main">
+  <h1>Welcome Back! </h1>
+<!---->
+
+<div class="main">
+  <h1>Welcome New User! </h1>
+
+<div class="newuser">
+  <form #newuserform="ngForm" (ngSubmit)="adddata(newuserform)">
+    <p>
+      <input type="text" ngModel #username="ngModel" name="username" placeholder="New Username" required/>
+      <span *ngIf="username.invalid">Username Invalid</span>
+    </p>
+    <p>
+      <input type="password" ngModel #password="ngModel" name="password"  placeholder="New Password" required />
+      <span *ngIf="password.invalid">Password Invalid</span>
+    </p>
+    <p>
+      <input type="text" ngModel #id="ngModel" name="id"  placeholder="Number" required />
+    </p>
+    <button [disabled]="newuserform.invalid" type="submit">Save Account</button>
+  </form>
+</div>
+</div>
