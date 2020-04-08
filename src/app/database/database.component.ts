@@ -13,10 +13,14 @@ export class DatabaseComponent implements OnInit {
 
   searchText: any;
 
+  user: { username: string, password: string, id: any} = {
+    username: "",
+    password: "",
+    id: ""
+  }
+
   // note lower case
   constructor(private httpClient : HttpClient, private userService : UserInfoService) { }
-
-  user : any = [];
 
   ngOnInit(): void {
     this.httpClient.get("http://localhost:3000/posts").subscribe((data : [])=>
@@ -29,9 +33,14 @@ export class DatabaseComponent implements OnInit {
     return { active : false, even : index % 2 !== 0, odd : index % 2 === 0}
   }
 
-  addData(user)
-  {
-    this.httpClient.post("http://localhost:3000/posts", user);
+  adddata(form : NgForm)
+  { 
+    location.reload ();
+    this.userService.addUser(form.value).subscribe(()=>{
+      console.log("test_is_working")
+    })
   }
+  
 
+  
 }

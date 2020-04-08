@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './newuser.component.html',
   styleUrls: ['./newuser.component.scss']
 })
-export class LoginComponent implements OnInit 
+export class RegisterComponent implements OnInit 
 {
 
   user: { username: string, password: string, id: any} = {
@@ -20,18 +20,13 @@ export class LoginComponent implements OnInit
 
   // creates router object
   constructor(private router : Router, private userService : UserInfoService) { }
-  
-  newlogin(newuserform)
-  {
-    //this.httpClient.post("http://localhost:3000/admin", newuserform);
-    //this.router.navigate(["/catalog"]);
-  }
 
   adddata(form : NgForm)
   { 
-    return this.userService.addUser(form.value).subscribe(()=>{
+    this.userService.addUser(form.value).subscribe(()=>{
       console.log("test_is_working")
     })
+    this.router.navigate(["/catalog"]);
   }
     
   ngOnInit(): void {}

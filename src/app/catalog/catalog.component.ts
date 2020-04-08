@@ -4,6 +4,7 @@ import { LibraryService } from '../library.service'
 import { UserInfoService } from '../employee.service';
 import { MomentPipe } from '../moment.pipe';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-catalog',
@@ -16,13 +17,11 @@ export class CatalogComponent implements OnInit {
   //creationDate = new Date().toISOString();
   creationDate = new Date(2020,2,3).toISOString();
 
-  booklist = [];
   user = [];
   constructor(private catalogService : LibraryService, private userService : UserInfoService, private httpClient : HttpClient) { }
   
   ngOnInit(): void {
-    this.booklist = this.catalogService.books;
-    this.httpClient.get("http://localhost:3000/posts").subscribe((data : [])=>
+    this.httpClient.get("http://localhost:3000/contacts").subscribe((data : [])=>
     {
       this.counteries = data;
     })
@@ -37,6 +36,20 @@ export class CatalogComponent implements OnInit {
 
   searchText: any;
 
+  contact: { name: string, email: string, id: any} = {
+    name: "",
+    email: "",
+    id: ""
+  }
+
   // note lower case  
+
+  addcontact(form : NgForm)
+  { 
+    location.reload ();
+    this.userService.addContact(form.value).subscribe(()=>{
+      console.log("test_is_working")
+    })
+  }
 
 }

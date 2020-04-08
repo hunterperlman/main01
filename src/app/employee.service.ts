@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,18 @@ export class UserInfoService {
 
   private list : any= [];
 
+  private counteries : any = [];
+
   listObserve = new Subject<[]>();
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient, private router: Router) { }
+
+  ngOnInit(): void {
+    this.httpClient.get("http://localhost:3000/posts").subscribe((data : [])=>
+    {
+      this.counteries = data;
+    })
+  }
 
   add(user)
     {
@@ -28,5 +38,11 @@ export class UserInfoService {
   { 
     return this.httpClient.post("http://localhost:3000/posts", user);
   }
+
+  addContact(contact)
+  {
+    return this.httpClient.post("http://localhost:3000/contacts", contact);
+  }
 }
+
 

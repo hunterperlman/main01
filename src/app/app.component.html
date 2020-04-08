@@ -1,2 +1,26 @@
-<!-- Runs site through router TS -->
-<router-outlet></router-outlet>
+<router-outlet>
+    <header>
+    
+      
+      <div class="parent">
+        <div class='child-left'>
+          <a routerLinkActive="active" routerLink="/register">Register</a>
+        </div>
+    
+        <div class='child-middle'>
+          <a routerLinkActive="active" routerLink="/login">Login</a>
+        </div>
+        
+        <div class='child-d'>
+            <a routerLinkActive="active" routerLink="/contacts">Contacts</a>
+        </div>
+        
+        <div class='child-right'>
+            <a routerLinkActive="active" routerLink="/database">Admin</a>
+        </div>
+    
+      </div>
+    </header>
+    
+    
+</router-outlet>

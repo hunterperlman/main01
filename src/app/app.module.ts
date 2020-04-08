@@ -6,21 +6,23 @@ import { RouterModule } from "@angular/router";
 import { AppRoutes } from "./routes";
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './newuser/newuser.component';
+import { RegisterComponent } from './newuser/newuser.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { MomentPipe } from './moment.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AddtodataComponent } from './addtodata/addtodata.component';
 import { DatabaseComponent } from './database/database.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
-    LoginComponent,
+    RegisterComponent,
     MomentPipe,
     AddtodataComponent,
-    DatabaseComponent
+    DatabaseComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,

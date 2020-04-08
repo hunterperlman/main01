@@ -1,0 +1,17 @@
+<div class="main">
+
+    <h1>Login </h1>
+  
+    <div class="newuser">
+      <form #loginform="ngForm" (ngSubmit)="loginuser(loginform)">
+        <p>
+          <input type="text" ngModel #username="ngModel" name="username" placeholder="Username" required/>
+          <span *ngIf="username.invalid">Username Required</span>
+        </p>
+        <p>
+          <input type="password" ngModel #password="ngModel" name="password"  placeholder="Password" required />
+          <span *ngIf="password.invalid">Password Required</span>
+        </p>
+        <button [disabled]="loginform.invalid" type="submit">Submit</button>
+      </form>
+    </div>
